@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1 of one</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Didot&display=swap');
+    body {
+      background-color: #000000;
+      perspective: 1px;
+      transform-style: preserve-3d;
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .font-didot {
+      font-family: 'Didot', serif;
+    }
+    .group:hover .group-hover-fill-charcoal {
+      fill: #111111;
+    }#preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000000;
+      transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+    }
+    #preloader-text {
+      transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+    }
+    .preloader-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #main-content {
+      opacity: 0;
+      transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1) 2.5s;
+    }
+    .main-content-visible {
+      opacity: 1;
+    }
+    .parallax {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .parallax-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: translateZ(-1.5px) scale(2.6);
+        transition: filter 1s ease-in-out;
+    }
+    .is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .is-visible .parallax-bg {
+        filter: blur(0px);
+    }
+    .parallax-bg.blur-active {
+        filter: blur(5px);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#cba034",
+            "background-light": "#f8f7f6",
+            "background-dark": "#1f1c13",
+            "brand-black": "#000000",
+            "brand-charcoal": "#111111",
+            "brand-gold": "#CBA135",
+            "brand-white": "#E5E5E5"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"],
+            "heading": ["Didot", "serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-brand-black text-brand-white font-display">
+<div id="preloader">
+<h1 class="font-heading text-4xl text-brand-white" id="preloader-text">Not for everyone.</h1>
+</div>
+<div class="relative w-full flex flex-col overflow-x-hidden" id="main-content">
+<section class="relative flex h-screen min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-brand-black p-4 parallax">
+<div class="parallax-bg">
+<video autoplay="" class="h-full w-full object-cover opacity-25" loop="" muted="" playsinline="">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-black-fabric-waving-in-the-air-4515-large.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-6 text-center">
+<h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl">1 of one</h1>
+<div class="flex flex-col gap-2">
+<h2 class="font-heading text-lg font-normal leading-normal text-brand-white md:text-xl">Not for everyone. Just for you.</h2>
+<p class="text-sm font-normal leading-normal text-brand-white/80">Each piece. Made once. Worn by one.</p>
+</div>
+<a class="sound-on-hover group mt-4 inline-block cursor-pointer border border-brand-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-brand-gold transition-colors duration-300 hover:bg-brand-charcoal hover:text-brand-white" href="#collection">
+<span class="truncate">Explore Collection</span>
+</a>
+</div>
+</section>
+<section class="flex min-h-screen w-full flex-col items-center justify-center bg-brand-black py-20 md:py-40 parallax">
+<div class="flex max-w-4xl flex-col items-center gap-8 px-4 text-center">
+<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl">Made for one person. Forever.</h2>
+<p class="max-w-2xl text-base font-normal leading-relaxed text-brand-white/80">
+          In a world saturated with mass production, we champion the singular. Each garment is conceived as a unique work of art, meticulously crafted with no intention of replication. It exists for one individual, a private dialogue between creator and wearer. This is not just clothing; it is a commitment to personal identity, an heirloom of the self.
+        </p>
+</div>
+</section>
+<div class="relative h-[80vh] w-full overflow-hidden parallax">
+<div class="parallax-bg bg-cover bg-center bg-no-repeat" data-alt="Close-up detail of intricate white embroidery on a black fabric shirt, showcasing craftsmanship." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHe6HNlO1L3oVEqSnVPw381eEZv9oNE3PShokmhrnsuqzBDW7JwrybXSyRJVfXBSEI-o58jpjEq4RpPhlML1KKxy4CgXBvSbgPzbF7q0PPHMUQvEoSRqYj-gYLiEyJMq16nxvgzrdEU0pH6bHBymar984dwxw9BFQq5Z1nb3SN9AcfvtXuD8EH-auFglgCUrEYXgAK7Otk1MISlZKmAsXdYqBJcd6aup0LTPjvkJDoDzHTSVJeg10c6ilwi7n6bbzVk6l3mCvhB_o");'></div>
+</div>
+<section class="w-full bg-brand-black py-20 md:py-40 parallax" id="collection">
+<div class="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4">
+<div class="flex flex-col gap-2 text-center">
+<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl">The Emoji Collection</h2>
+<p class="text-base font-normal leading-normal text-brand-white/80">Volume 1 — Each design limited to one piece.</p>
+</div>
+<div class="flex w-full overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex items-stretch gap-6 p-4 md:gap-8">
+<div class="sound-on-hover group relative h-full flex-1 shrink-0 flex-col rounded-lg md:min-w-80 min-w-72">
+<div class="aspect-square w-full rounded-none bg-brand-charcoal bg-cover bg-center bg-no-repeat" data-alt="Black shirt with a fire emoji embroidered in the center." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQ_YglQ2Q8A-6WhRAQu4IVbtdm4uQ94xyhUuF08WR0xTJieP23F430HPRcX7Ol09hMuBN0pnCoHNzv5P_S9wMi-SmBGY3dBiMVXbpUFkkuHyTk1ilsadOAx0BtBoHoSr_6ZEG_DtsC8iX4hDGsaTfjvCQ4RTfJZgP1q5xscb491INGiRQ0l6EMYCd5dXqZHUmCxqUG4PJnC9CN4x9vLiUtTWOeZrMoNuRY_gPVzlGHwDGg3HHUwPU-8AsnBefxK25vAOyLtV7m64s");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<p class="font-heading text-2xl font-normal text-brand-gold">The Flame</p>
+</div>
+</div>
+<div class="sound-on-hover group relative h-full flex-1 shrink-0 flex-col rounded-lg md:min-w-80 min-w-72">
+<div class="aspect-square w-full rounded-none bg-brand-charcoal bg-cover bg-center bg-no-repeat" data-alt="Black shirt with a rocket emoji embroidered in the center." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVBvQBv2jFJRH04m0gYpn1iVSgZj4UCjyx-fvjZKF5k5BqqaIYT5QNxPlYL2q_PvFv8scPzvlO_aw15aKFoc3gsDypettkKsvJzGqtVHwO2tENn0vRGENiUwSH6eRBNXgaKr5DQVPIv9232un60WTF28QHYo6eQs_xd75rhD2K-YedXwnjioqflJ234ojQ3XBrL54YcztFw8QHzXrVENRKbZ2gO2MH9HMR_7IJoO-3IAIWX3APGiMrx8_QK5wy-29yJSwmZh9UbAI");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<p class="font-heading text-2xl font-normal text-brand-gold">The Rocket</p>
+</div>
+</div>
+<div class="sound-on-hover group relative h-full flex-1 shrink-0 flex-col rounded-lg md:min-w-80 min-w-72">
+<div class="aspect-square w-full rounded-none bg-brand-charcoal bg-cover bg-center bg-no-repeat" data-alt="Black shirt with a diamond emoji embroidered in the center." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtTnhZKcFudn6bjP9gXuFRHcn3ruZ-favGnpkNTtsuPbcgFu5KDJAlIsZetoFK-U9tsauJk1ULBZwaLhsj09hxhlDOSPQLlG-lzjAmbI-MCtVlS2e1Le6PjU5rGd3BewtuIgmrh23fXk5ux5qJwrhe7pFuJLyAYNhsVCUAKKvQZSZ8SybpLxpLaR50s1-9eYzZr0ZsasdECM43ba_vnhbQMb3Pa0aXdAXn6WZ-SIFYDK8KfYzxUEmio9vEZQ94UyvhlUG2IiuiCFk");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<p class="font-heading text-2xl font-normal text-brand-gold">The Diamond</p>
+</div>
+</div>
+<div class="sound-on-hover group relative h-full flex-1 shrink-0 flex-col rounded-lg md:min-w-80 min-w-72">
+<div class="aspect-square w-full rounded-none bg-brand-charcoal bg-cover bg-center bg-no-repeat" data-alt="Black shirt with a key emoji embroidered in the center." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbHD3N0WTKsj738C5XX5oMeBUgRVtGNnFrzB7djjFBGWhq7248pRUBSWpSe5cluR6bht7ToTwM5rAicmOv-KmfcW03kpsxP5pbz93JKWAMM2YQ2TOiXxjSsNIaT1RzXGDPLvT4ljebMPmXqrgsP0dOYQTunXTfIM3SF2uu9dgKixjjHOsKIYO4Tuf1kypktzLcLiHqL6QdKnp07nV1-e2AQLSrCQlVqFQLNqiwpr6g421gOR7bLRgQMePvxvn1LNFHYjGboT17Zxg");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<p class="font-heading text-2xl font-normal text-brand-gold">The Key</p>
+</div>
+</div>
+<div class="sound-on-hover group relative h-full flex-1 shrink-0 flex-col rounded-lg md:min-w-80 min-w-72">
+<div class="aspect-square w-full rounded-none bg-brand-charcoal bg-cover bg-center bg-no-repeat" data-alt="Black shirt with a ghost emoji embroidered in the center." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDP8yyhHt22PjlJXt4QfF09nVVQrAtwew-FfbzZHL7bOhWEarpBmfA7vo8dNLNuvTAFItDjy0kSXE00t6V48pOHJJQS6813gvgiGoZY57mGDQ1Ni1Nc5dPnLyuU__agPgaCgqTV7uItdejO14bsU0aq_9MaBEdnvkZfg3HTsekLM6bHb-h75FHVf7RZ0eeeiu25IjYd1viPrz3O4rJeSs8JWVdy8k1Ei_n6Gxzdx31ecBNMepEWnwCaNmT5cXhHUS2HxSzxeD_OULs");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+<p class="font-heading text-2xl font-normal text-brand-gold">The Ghost</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden bg-brand-black py-20 md:py-40 parallax">
+<div class="parallax-bg">
+<video autoplay="" class="h-full w-full object-cover opacity-20" loop="" muted="" playsinline="">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-woman-sewing-a-piece-of-patterened-fabric-4034-large.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="relative z-10 flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
+<h2 class="font-heading text-4xl font-normal leading-tight tracking-widest text-brand-white md:text-6xl">Simplicity is the new signature.</h2>
+<p class="max-w-2xl text-base font-normal leading-relaxed text-brand-white/80">
+          We strip away the extraneous to reveal the essential. Our philosophy is one of restraint, where every stitch has purpose and every detail is considered. This is design that speaks in whispers, not shouts, creating a quiet confidence that is felt, not just seen.
+        </p>
+</div>
+</section>
+<section class="flex w-full flex-col items-center justify-center bg-brand-charcoal py-20 md:py-40 parallax">
+<div class="flex max-w-3xl flex-col items-center gap-8 px-4 text-center">
+<div class="flex flex-col items-center gap-4">
+<svg class="h-12 w-12 text-brand-gold" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"></path><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg>
+<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl">The Inner Circle. For the One.</h2>
+</div>
+<p class="max-w-2xl text-base font-normal leading-relaxed text-brand-white/90">Ownership of a '1 of one' piece is more than a purchase—it is an initiation. You gain access to our exclusive community, a private digital space where you connect with the singular individuals who share our ethos. Receive early access to future volumes, commission bespoke creations, and engage directly with our artisans. This is the inner circle, a testament to true exclusivity.</p>
+<a class="sound-on-hover group mt-6 inline-block cursor-pointer border border-brand-gold bg-brand-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-brand-black transition-colors duration-300 hover:bg-transparent hover:text-brand-gold" href="#">
+<span class="truncate">Join the Circle</span>
+</a>
+</div>
+</section>
+<section class="flex min-h-screen w-full flex-col items-center justify-center gap-12 bg-brand-black p-4 py-20 text-center md:gap-20 md:py-40 parallax">
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">In a world full of copies, <br/> we choose to stay rare.</h3>
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">One shirt. One story.</h3>
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">One of one.</h3>
+</section>
+<section class="flex min-h-[80vh] w-full flex-col items-center justify-center bg-brand-black p-4 py-20 md:py-40 parallax">
+<div class="flex max-w-2xl flex-col items-center gap-8 text-center">
+<h2 class="font-heading text-5xl font-normal leading-tight text-brand-white md:text-7xl">Be the one.</h2>
+<p class="text-base font-normal leading-normal text-brand-white/80">Volume 1 — The Emoji Collection. Coming soon.</p>
+<form class="mt-4 flex w-full max-w-md flex-col items-center gap-4">
+<div class="relative w-full">
+<input class="w-full border-0 border-b border-brand-gold bg-transparent px-0 py-3 text-center text-brand-white placeholder-brand-white/50 focus:border-brand-white focus:ring-0" placeholder="Enter your email address" type="email"/>
+</div>
+<button class="sound-on-hover w-full cursor-pointer bg-brand-gold px-8 py-4 text-sm font-bold uppercase tracking-widest text-brand-black transition-opacity hover:opacity-90" type="submit">Join the Drop</button>
+</form>
+</div>
+</section>
+<footer class="w-full bg-brand-charcoal py-12 parallax">
+<div class="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 text-center">
+<nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
+<a class="sound-on-hover text-sm uppercase tracking-wider text-brand-white/80 transition-colors duration-300 hover:text-brand-gold" href="#">Home</a>
+<a class="sound-on-hover text-sm uppercase tracking-wider text-brand-white/80 transition-colors duration-300 hover:text-brand-gold" href="#">About</a>
+<a class="sound-on-hover text-sm uppercase tracking-wider text-brand-white/80 transition-colors duration-300 hover:text-brand-gold" href="#">Collection</a>
+<a class="sound-on-hover text-sm uppercase tracking-wider text-brand-white/80 transition-colors duration-300 hover:text-brand-gold" href="#">Contact</a>
+<a class="sound-on-hover text-sm uppercase tracking-wider text-brand-white/80 transition-colors duration-300 hover:text-brand-gold" href="#">Instagram</a>
+</nav>
+<p class="text-xs text-brand-white/50">© 2025 1 of one. All rights reserved.</p>
+</div>
+</footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Preloader logic
+      const preloader = document.getElementById('preloader');
+      const preloaderText = document.getElementById('preloader-text');
+      const mainContent = document.getElementById('main-content');
+      // Fade out the preloader text first
+      setTimeout(() => {
+        preloaderText.style.opacity = '0';
+      }, 2500); // Start fading out text after 2.5s
+      // Fade out the preloader background and fade in the main content
+      setTimeout(() => {
+        preloader.classList.add('preloader-hidden');
+        mainContent.classList.add('main-content-visible');
+      }, 5000); // Start fading out preloader screen after 5s total
+      // Create a single audio element to be reused
+      const hoverSound = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3');
+      hoverSound.volume = 0.1; // Set a low volume for a subtle effect
+      // Get all elements that should play sound on hover
+      const soundElements = document.querySelectorAll('.sound-on-hover');
+      soundElements.forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+          // Play the sound
+          hoverSound.currentTime = 0; // Rewind to the start
+          hoverSound.play().catch(error => console.log("Audio playback was prevented. User interaction might be required first."));
+        });
+      });
+       // Soft fade-in and blur logic
+        const sections = document.querySelectorAll('.parallax');
+        const parallaxBgs = document.querySelectorAll('.parallax-bg');
+        let blurTimeout;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        window.addEventListener('scroll', () => {
+            clearTimeout(blurTimeout);
+            parallaxBgs.forEach(bg => {
+                bg.classList.add('blur-active');
+            });
+            blurTimeout = setTimeout(() => {
+                parallaxBgs.forEach(bg => {
+                    bg.classList.remove('blur-active');
+                });
+            }, 750);
+        });
+    });
+  </script>
+</body></html>
