@@ -19,6 +19,67 @@
     .group:hover .group-hover-fill-charcoal {
       fill: #111111;
     }
+    
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .slide-in-left.visible,
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    
+    .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .zoom-bg {
+      transform: scale(1.1);
+      transition: transform 1.5s ease-out;
+    }
+    
+    .zoom-bg.visible {
+      transform: scale(1);
+    }
   </style>
 <script id="tailwind-config">
     tailwind.config = {
@@ -53,12 +114,12 @@
 <div class="relative w-full flex flex-col overflow-x-hidden">
 <section class="flex h-screen min-h-[700px] w-full flex-col items-center justify-center bg-brand-black p-4">
 <div class="flex flex-col items-center gap-6 text-center">
-<h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl">1 of one</h1>
+<h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl fade-in">1 of one</h1>
 <div class="flex flex-col gap-2">
-<h2 class="font-heading text-lg font-normal leading-normal text-brand-white md:text-xl">Not for everyone. Just for you.</h2>
-<p class="text-sm font-normal leading-normal text-brand-white/80">Each piece. Made once. Worn by one.</p>
+<h2 class="font-heading text-lg font-normal leading-normal text-brand-white md:text-xl fade-in" style="transition-delay: 0.3s">Not for everyone. Just for you.</h2>
+<p class="text-sm font-normal leading-normal text-brand-white/80 fade-in" style="transition-delay: 0.6s">Each piece. Made once. Worn by one.</p>
 </div>
-<a class="sound-on-hover group mt-4 inline-block cursor-pointer border border-brand-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-brand-gold transition-colors duration-300 hover:bg-brand-charcoal hover:text-brand-white" href="#collection">
+<a class="sound-on-hover group mt-4 inline-block cursor-pointer border border-brand-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-brand-gold transition-colors duration-300 hover:bg-brand-charcoal hover:text-brand-white fade-in" style="transition-delay: 0.9s" href="#collection">
 <span class="truncate">Explore Collection</span>
 </a>
 </div>
@@ -77,8 +138,8 @@
 <section class="w-full bg-brand-black py-20 md:py-40" id="collection">
 <div class="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4">
 <div class="flex flex-col gap-2 text-center">
-<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl">The Emoji Collection</h2>
-<p class="text-base font-normal leading-normal text-brand-white/80">Volume 1 — Each design limited to one piece.</p>
+<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl fade-in">The Emoji Collection</h2>
+<p class="text-base font-normal leading-normal text-brand-white/80 fade-in" style="transition-delay: 0.2s">Volume 1 — Each design limited to one piece.</p>
 </div>
 <div class="flex w-full overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
 <div class="flex items-stretch gap-6 p-4 md:gap-8">
@@ -121,16 +182,16 @@
 <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-sewing-a-piece-of-patterened-fabric-4034-large.mp4" type="video/mp4"/>
 </video>
 <div class="relative z-10 flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
-<h2 class="font-heading text-4xl font-normal leading-tight tracking-widest text-brand-white md:text-6xl">Simplicity is the new signature.</h2>
-<p class="max-w-2xl text-base font-normal leading-relaxed text-brand-white/80">
+<h2 class="font-heading text-4xl font-normal leading-tight tracking-widest text-brand-white md:text-6xl slide-in-left">Simplicity is the new signature.</h2>
+<p class="max-w-2xl text-base font-normal leading-relaxed text-brand-white/80 slide-in-right" style="transition-delay: 0.3s">
           We strip away the extraneous to reveal the essential. Our philosophy is one of restraint, where every stitch has purpose and every detail is considered. This is design that speaks in whispers, not shouts, creating a quiet confidence that is felt, not just seen.
         </p>
 </div>
 </section>
 <section class="flex min-h-screen w-full flex-col items-center justify-center gap-12 bg-brand-black p-4 py-20 text-center md:gap-20 md:py-40">
-<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">In a world full of copies, <br/> we choose to stay rare.</h3>
-<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">One shirt. One story.</h3>
-<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl">One of one.</h3>
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl fade-in">In a world full of copies, <br/> we choose to stay rare.</h3>
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl fade-in" style="transition-delay: 0.3s">One shirt. One story.</h3>
+<h3 class="font-heading text-3xl font-normal leading-snug text-brand-white md:text-5xl fade-in" style="transition-delay: 0.6s">One of one.</h3>
 </section>
 <section class="flex min-h-[80vh] w-full flex-col items-center justify-center bg-brand-black p-4 py-20 md:py-40">
 <div class="flex max-w-2xl flex-col items-center gap-8 text-center">
@@ -171,6 +232,33 @@
           hoverSound.play().catch(error => console.log("Audio playback was prevented. User interaction might be required first."));
         });
       });
+
+      // Animation Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .stagger-item, .zoom-bg').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Initialize first screen animations
+      setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 100);
     });
   </script>
 </body></html>
