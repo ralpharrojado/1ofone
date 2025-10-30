@@ -245,17 +245,27 @@
       const preloader = document.getElementById('preloader');
       const preloaderText = document.getElementById('preloader-text');
       const mainContent = document.getElementById('main-content');
-      // Fade out the preloader text first
+      
+      // Ensure main content is ready but hidden
+      mainContent.style.display = 'block';
+      
+      // Start the sequence after a short delay
       setTimeout(() => {
+        // Fade out the preloader text
         preloaderText.style.opacity = '0';
-      }, 2500); // Start fading out text after 2.5s
-      // Fade out the preloader background and fade in the main content
-      setTimeout(() => {
-        preloader.classList.add('preloader-hidden');
-        mainContent.classList.add('main-content-visible');
-        // Force a reflow to ensure the opacity transition works
-        mainContent.offsetHeight;
-      }, 3000); // Reduced to 3s total to make the transition smoother
+        
+        // After text fades, fade out preloader and show main content
+        setTimeout(() => {
+          preloader.classList.add('preloader-hidden');
+          mainContent.style.opacity = '1';
+          document.body.style.backgroundColor = '#000000';
+          
+          // Initialize parallax sections
+          document.querySelectorAll('.parallax').forEach(section => {
+            section.classList.add('is-visible');
+          });
+        }, 1500);
+      }, 2000);
       // Create a single audio element to be reused
       const hoverSound = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3');
       hoverSound.volume = 0.1; // Set a low volume for a subtle effect
