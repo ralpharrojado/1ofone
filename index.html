@@ -18,34 +18,6 @@
     }
     .group:hover .group-hover-fill-charcoal {
       fill: #111111;
-    }#preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #000000;
-      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 1;
-    }
-    #preloader-text {
-      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 1;
-    }
-    .preloader-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    #main-content {
-      opacity: 0;
-      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1.5s;
-    }
-    .main-content-visible {
-      opacity: 1;
     }
   </style>
 <script id="tailwind-config">
@@ -78,10 +50,7 @@
   </script>
 </head>
 <body class="bg-brand-black text-brand-white font-display">
-<div id="preloader">
-<h1 class="font-heading text-4xl text-brand-white" id="preloader-text">Not for everyone.</h1>
-</div>
-<div class="relative w-full flex flex-col overflow-x-hidden" id="main-content">
+<div class="relative w-full flex flex-col overflow-x-hidden">
 <section class="flex h-screen min-h-[700px] w-full flex-col items-center justify-center bg-brand-black p-4">
 <div class="flex flex-col items-center gap-6 text-center">
 <h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl">1 of one</h1>
@@ -190,19 +159,6 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Preloader logic
-      const preloader = document.getElementById('preloader');
-      const preloaderText = document.getElementById('preloader-text');
-      const mainContent = document.getElementById('main-content');
-      // Fade out the preloader text first
-      setTimeout(() => {
-        preloaderText.style.opacity = '0';
-      }, 1500); // Start fading out text after 1.5s
-      // Fade out the preloader background and fade in the main content
-      setTimeout(() => {
-        preloader.classList.add('preloader-hidden');
-        mainContent.classList.add('main-content-visible');
-      }, 3000); // Start fading out preloader screen after 3s total
       // Create a single audio element to be reused
       const hoverSound = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3');
       hoverSound.volume = 0.1; // Set a low volume for a subtle effect
