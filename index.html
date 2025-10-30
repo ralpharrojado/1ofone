@@ -10,12 +10,106 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Didot&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+    
     body {
       background-color: #000000;
+      cursor: default;
     }
+    
+    /* Luxury Cursor */
+    .cursor-dot {
+      width: 5px;
+      height: 5px;
+      background-color: #CBA135;
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 9999;
+      transition: transform 0.2s;
+    }
+    
+    .cursor-outline {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #CBA135;
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 9998;
+      transition: transform 0.15s;
+    }
+    
+    /* Luxury Hover Effects */
+    .luxury-link {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .luxury-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #CBA135;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    .luxury-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    /* Premium Card Effect */
+    .premium-card {
+      background: linear-gradient(45deg, rgba(203, 161, 53, 0.05), rgba(203, 161, 53, 0.02));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(203, 161, 53, 0.1);
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    .premium-card:hover {
+      border-color: rgba(203, 161, 53, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px -15px rgba(203, 161, 53, 0.15);
+    }
+    
+    /* Luxury Scroll Bar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      background: #000000;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #CBA135;
+      border-radius: 4px;
+    }
+    
+    /* Golden Accent */
+    .golden-accent {
+      position: relative;
+    }
+    
+    .golden-accent::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #CBA135, transparent);
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
     .font-didot {
-      font-family: 'Didot', serif;
+      font-family: 'Didot', 'Cormorant Garamond', serif;
+      letter-spacing: 0.03em;
     }
+    
     .group:hover .group-hover-fill-charcoal {
       fill: #111111;
     }
@@ -111,15 +205,24 @@
   </script>
 </head>
 <body class="bg-brand-black text-brand-white font-display">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 <div class="relative w-full flex flex-col overflow-x-hidden">
-<section class="flex h-screen min-h-[700px] w-full flex-col items-center justify-center bg-brand-black p-4">
-<div class="flex flex-col items-center gap-6 text-center">
-<h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl fade-in">1 of one</h1>
-<div class="flex flex-col gap-2">
-<h2 class="font-heading text-lg font-normal leading-normal text-brand-white md:text-xl fade-in" style="transition-delay: 0.3s">Not for everyone. Just for you.</h2>
-<p class="text-sm font-normal leading-normal text-brand-white/80 fade-in" style="transition-delay: 0.6s">Each piece. Made once. Worn by one.</p>
+<section class="flex h-screen min-h-[700px] w-full flex-col items-center justify-center bg-brand-black p-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(203,161,53,0.1),transparent_50%)]"></div>
+<div class="flex flex-col items-center gap-8 text-center relative z-10">
+<div class="golden-accent">
+  <h1 class="font-heading text-6xl font-normal leading-tight tracking-wider text-brand-white md:text-8xl fade-in relative">
+    <span class="absolute -left-6 top-1/2 w-4 h-[1px] bg-brand-gold transform -translate-y-1/2 opacity-70"></span>
+    1 of one
+    <span class="absolute -right-6 top-1/2 w-4 h-[1px] bg-brand-gold transform -translate-y-1/2 opacity-70"></span>
+  </h1>
 </div>
-<a class="sound-on-hover group mt-4 inline-block cursor-pointer border border-brand-gold px-8 py-3 text-sm font-bold uppercase tracking-widest text-brand-gold transition-colors duration-300 hover:bg-brand-charcoal hover:text-brand-white fade-in" style="transition-delay: 0.9s" href="#collection">
+<div class="flex flex-col gap-3 max-w-xl">
+  <h2 class="font-heading text-lg font-normal leading-normal text-brand-white md:text-xl fade-in premium-card p-4" style="transition-delay: 0.3s">Not for everyone. Just for you.</h2>
+  <p class="text-sm font-normal leading-normal text-brand-white/80 fade-in tracking-wide" style="transition-delay: 0.6s">Each piece. Made once. Worn by one.</p>
+</div>
+<a class="sound-on-hover luxury-link group mt-6 inline-block cursor-pointer border border-brand-gold px-10 py-4 text-sm font-bold uppercase tracking-widest text-brand-gold transition-all duration-500 hover:bg-brand-gold hover:text-brand-black fade-in" style="transition-delay: 0.9s" href="#collection">
 <span class="truncate">Explore Collection</span>
 </a>
 </div>
@@ -135,11 +238,14 @@
 <div class="w-full">
 <div class="h-[80vh] w-full bg-cover bg-center bg-no-repeat" data-alt="Close-up detail of intricate white embroidery on a black fabric shirt, showcasing craftsmanship." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHe6HNlO1L3oVEqSnVPw381eEZv9oNE3PShokmhrnsuqzBDW7JwrybXSyRJVfXBSEI-o58jpjEq4RpPhlML1KKxy4CgXBvSbgPzbF7q0PPHMUQvEoSRqYj-gYLiEyJMq16nxvgzrdEU0pH6bHBymar984dwxw9BFQq5Z1nb3SN9AcfvtXuD8EH-auFglgCUrEYXgAK7Otk1MISlZKmAsXdYqBJcd6aup0LTPjvkJDoDzHTSVJeg10c6ilwi7n6bbzVk6l3mCvhB_o"); background-attachment: fixed;'></div>
 </div>
-<section class="w-full bg-brand-black py-20 md:py-40" id="collection">
-<div class="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4">
-<div class="flex flex-col gap-2 text-center">
-<h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl fade-in">The Emoji Collection</h2>
-<p class="text-base font-normal leading-normal text-brand-white/80 fade-in" style="transition-delay: 0.2s">Volume 1 — Each design limited to one piece.</p>
+<section class="w-full bg-brand-black py-20 md:py-40 relative" id="collection">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(203,161,53,0.05),transparent_50%)]"></div>
+<div class="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 relative z-10">
+<div class="flex flex-col gap-4 text-center">
+<div class="golden-accent">
+  <h2 class="font-heading text-4xl font-normal leading-tight text-brand-white md:text-6xl fade-in">The Emoji Collection</h2>
+</div>
+<p class="text-base font-normal leading-normal text-brand-white/80 fade-in premium-card inline-block mx-auto px-6 py-2" style="transition-delay: 0.2s">Volume 1 — Each design limited to one piece.</p>
 </div>
 <div class="flex w-full overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
 <div class="flex items-stretch gap-6 p-4 md:gap-8">
@@ -220,6 +326,43 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Custom cursor
+      const cursor = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
+      
+      document.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        
+        cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+        cursorOutline.style.transform = `translate3d(${posX - 13}px, ${posY - 13}px, 0)`;
+      });
+      
+      document.addEventListener('mousedown', () => {
+        cursor.style.transform += ' scale(0.75)';
+        cursorOutline.style.transform += ' scale(0.75)';
+      });
+      
+      document.addEventListener('mouseup', () => {
+        cursor.style.transform = cursor.style.transform.replace(' scale(0.75)', '');
+        cursorOutline.style.transform = cursorOutline.style.transform.replace(' scale(0.75)', '');
+      });
+      
+      // Hover effect for luxury elements
+      document.querySelectorAll('a, button, .premium-card').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.style.transform += ' scale(1.5)';
+          cursorOutline.style.transform += ' scale(1.5)';
+          cursorOutline.style.border = '1px solid rgba(203, 161, 53, 0.5)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.style.transform = cursor.style.transform.replace(' scale(1.5)', '');
+          cursorOutline.style.transform = cursorOutline.style.transform.replace(' scale(1.5)', '');
+          cursorOutline.style.border = '1px solid #CBA135';
+        });
+      });
+      
       // Create a single audio element to be reused
       const hoverSound = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3');
       hoverSound.volume = 0.1; // Set a low volume for a subtle effect
