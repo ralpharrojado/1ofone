@@ -253,7 +253,9 @@
       setTimeout(() => {
         preloader.classList.add('preloader-hidden');
         mainContent.classList.add('main-content-visible');
-      }, 5000); // Start fading out preloader screen after 5s total
+        // Force a reflow to ensure the opacity transition works
+        mainContent.offsetHeight;
+      }, 3000); // Reduced to 3s total to make the transition smoother
       // Create a single audio element to be reused
       const hoverSound = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3');
       hoverSound.volume = 0.1; // Set a low volume for a subtle effect
